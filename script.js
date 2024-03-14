@@ -52,6 +52,11 @@ while (restartGame){
   // Continue looping until the user guesses the correct number or runs out of attempts (NOTE: Loops until a BREAK keyword is run)
   while (true){
 
+    // Displays the number/answer when a secret code word is entered
+    if (guess === `Valley Forge`) {
+      alert(`The number is ${randomNum}`);
+    }
+
     // Tries to convert the user's guess into a number
     guess = parseInt(guess);
 
@@ -85,6 +90,32 @@ while (restartGame){
     
     // break;
   }
+
+  // Prompts user with option for play again
+  playAgain = prompt(`Would you like to play again? Y for yes. N for no.`);
+
+  // Loop continues until the user submits a valid response
+  while (true){
+
+    // Checks if the user's answer is no (AKA "N" or "n")
+    if (playAgain.toUpperCase() === `N`){
+
+      // Alerts the user the game is over and the game does not restart
+      alert(`Thanks for playing!`);
+      restartGame = false;
+      break;
+
+      // Checks if the user's answer is yes (AKA "Y" or "y")
+    } else if (playAgain.toUpperCase() === `Y`){
+      break;
+
+      // Prompts the user to enter a valid response and starts the loop again
+    } else {
+      playAgain = prompt(`Please enter Y or N:`);
+    }
+
+    // break;
+  }
   
-  break;
+  // break;
 }
